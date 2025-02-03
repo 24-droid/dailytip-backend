@@ -1,6 +1,6 @@
 import cron from "node-cron"
-import sendEmail from "./sendEmail"
-import fetchDevToArticle from "./fetchDevToArticle"
+import sendEmail from "./sendEmail.js"
+import fetchDevToArticle from "./fetchDevToArticle.js"
 import {User} from "../models/user.model.js"
 const sendDailyArticles =async()=>{
     try {
@@ -21,7 +21,7 @@ const sendDailyArticles =async()=>{
     } catch (error) {
         console.error("Failed to send article",error);
     }
-}
+};
 cron.schedule("0 9 * * *",()=>{
     console.log("Running daily article cron job...")
     sendDailyArticles();

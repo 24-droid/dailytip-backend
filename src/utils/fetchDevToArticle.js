@@ -15,3 +15,4 @@ const fetchDevToArticle=async()=>{
         console.error('Error fetching articles',error)
     }
 }
+export default fetchDevToArticle

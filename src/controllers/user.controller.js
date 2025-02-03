@@ -3,6 +3,7 @@ import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import { User } from "../models/user.model.js";
 import jwt from "jsonwebtoken"
+import sendEmail from "../utils/sendEmail.js";
 const generateAccessAndRefreshToken=async(userId)=>{
     try {
         const user= await User.findById(userId)
@@ -49,7 +50,14 @@ const registerUser=asyncHandler(async(req,res)=>{
             {
                 throw new ApiError(500,"Failed to create user")
             }
+            await sendEmail({
+                to:email,
+                subject:"Welcome to DailyTip!",
+                text:`Hello ${username} \n \n Thanks for signing in! \n \n You will receive tips daily at 9:00 am \n \n Happy Coding!`,
+                html:`<h1>Welcome to DailyTip, ${username}!</h1><p>Thanks for signing up! You will receive daily tips at <strong>9:00 AM</strong>.</p><p>Happy Coding!</p>`
+            })
             return res.status(201).json(new ApiResponse(200,createdUser,"User Registered Successfully"))
+
 })
 const loginUser= asyncHandler(async(req,res)=>{
     //email from req.body
