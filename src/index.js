@@ -17,3 +17,12 @@ connectDB()
 .catch((error)=>{
  console.log("MONGODB CONNECTION FAILED:",error)
 })
+setInterval(() => {
+    const now = new Date();
+    const hours = now.getHours();  
+    const minutes = now.getMinutes();
+    
+    if (hours === 9 && minutes === 0) {
+      sendDailyArticles();
+    }
+  }, 60000);
