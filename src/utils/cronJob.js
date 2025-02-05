@@ -11,7 +11,7 @@ const sendDailyArticles =async()=>{
             const emailPromises=users.map((user)=>{
         sendEmail({
             to:user.email,
-            subject:"Daily Article",
+            subject:"Daily Article 🚀🚀",
             text:`${article.title}\n${article.description}\n${article.url}`,
             html:`<h1>${article.title}</h1><p>${article.description}</p><a href="${article.url}">Read More</a>`,
         })})
