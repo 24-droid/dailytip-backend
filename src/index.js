@@ -22,7 +22,7 @@ setInterval(() => {
     const hours = now.getHours();  
     const minutes = now.getMinutes();
     
-    if (hours === 20 && minutes === 5) {
+    if (hours === 14 && minutes === 46) {
       sendDailyArticles();
     }
   }, 60000);
