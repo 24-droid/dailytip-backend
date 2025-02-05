@@ -54,7 +54,7 @@ const registerUser=asyncHandler(async(req,res)=>{
                 to:email,
                 subject:"Welcome to DailyTip!",
                 text:`Hello ${username} \n \n Thanks for signing in! \n \n You will receive tips daily at 9:00 am \n \n Happy Coding!`,
-                html:`<h1>Welcome to DailyTip, ${username}!</h1><p>Thanks for signing up! You will receive daily tips at <strong>9:00 AM GMT</strong>.</p><p>Happy Coding!</p>`
+                html:`<h1>Welcome to DailyTip, ${username}!</h1><p>Thanks for signing up! You will receive daily tips at <strong>2:30 PM</strong>.</p><p>Happy Coding!</p>`
             })
             return res.status(201).json(new ApiResponse(200,createdUser,"User Registered Successfully"))
 
